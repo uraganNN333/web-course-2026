@@ -8,60 +8,337 @@
 </head>
 <body>
   <header class="header">
-    <img class="avatar" src="photo.jpg" alt="Фотография Кирилла Шиша" width="150" height="150">
+    <img class="avatar" src="photo.jpg" alt="Фотография Кирилла Шиша" width="190" height="190">
     <div class="header-text">
-      <h1>Шиш Кирилл Сергеевич</h1>
-      <p class="position">Студент: математика и компьютерные науки</p>
-      <p class="slogan">Будущий миллионер: превращаю данные в решения.</p>
+      <p class="hello">Привет, я</p>
+      <h1>Кирилл Шиш</h1>
+      <p class="position">Младший аналитик данных · Junior Data Analyst</p>
+      <p class="slogan">Будущий миллионер. Превращаю данные в решения для продукта и бизнеса.</p>
+      <ul class="facts">
+        <li>г. Минск / г. Лида, Беларусь</li>
+        <li>БГУ · ММФ · 3 курс</li>
+        <li>Python · SQL · ML</li>
+      </ul>
+      <div class="buttons">
+        <a class="button button-primary" href="mailto:farmak8029@gmail.com">Написать мне</a>
+        <a class="button" href="https://github.com/uraganNN333" target="_blank" rel="noopener">Мой GitHub</a>
+      </div>
     </div>
   </header>
 
   <nav class="nav">
     <a href="#about">О себе</a>
-    <a href="#education">Образование</a>
+    <a href="#services">Что умею</a>
     <a href="#skills">Навыки</a>
+    <a href="#projects">Проекты</a>
+    <a href="#experience">Опыт</a>
+    <a href="#education">Образование</a>
+    <a href="#path">Путь</a>
     <a href="#contacts">Контакты</a>
   </nav>
 
   <main class="main">
     <section id="about" class="block">
-      <h2>О себе</h2>
-      <p>Меня зовут Кирилл, я учусь на третьем курсе Белорусского государственного университета
-        по специальности «математика и компьютерные науки» с профилизацией «искусственный интеллект
-        и математическая экономика». Меня интересуют машинное обучение, продуктовая аналитика
-        и то, как с помощью данных строить успешный бизнес. Сейчас изучаю Python, а также основы
-        веб-разработки. В свободное время занимаюсь спортом.</p>
+      <h2><span class="num">01</span>О себе</h2>
+      <p>Привет! Я Кирилл — студент третьего курса механико-математического факультета БГУ и начинающий
+        аналитик данных. Мне нравится находиться на стыке строгой математики и реального бизнеса: брать
+        сырые, неидеальные данные и превращать их в понятные выводы, на которые можно опереться при
+        принятии решений.</p>
+      <p>Моя профилизация в университете — искусственный интеллект и математическая экономика. На этом
+        фундаменте я строю практику: пишу ETL-процессы на Python, проектирую SQL-запросы с оконными функциями
+        и CTE, проверяю гипотезы статистическими тестами и собираю базовые ML-модели. Мне важно не просто
+        получить p-value, а понять, что из результата следует для продукта и бюджета.</p>
+      <p>Два года я преподавал математику и программирование. Это научило меня главному качеству аналитика —
+        объяснять сложное простыми словами и аргументировать свои выводы. Свой уровень я оцениваю честно:
+        с ML я уже работал руками, но продолжаю учиться и закрывать пробелы. Вне учёбы занимаюсь спортом: он
+        дисциплинирует и приучает к регулярности. Моя цель — вырасти в сильного продуктового аналитика и
+        строить карьеру (а когда-нибудь и собственный бизнес) на решениях, основанных на данных.</p>
+
+      <ul class="stats">
+        <li><span class="stat-number">3 курс</span><span class="stat-label">механико-математический факультет БГУ</span></li>
+        <li><span class="stat-number">0.79</span><span class="stat-label">AUC-ROC модели оттока клиентов</span></li>
+        <li><span class="stat-number">p &lt; 0.001</span><span class="stat-label">значимость разницы средних чеков</span></li>
+        <li><span class="stat-number">2</span><span class="stat-label">проекта по анализу данных</span></li>
+        <li><span class="stat-number">2 года</span><span class="stat-label">преподавания математики и программирования</span></li>
+      </ul>
+
+      <h3 class="subtitle">Интересы</h3>
+      <ul class="tags">
+        <li><span class="skill">Машинное обучение</span></li>
+        <li><span class="skill">Продуктовая аналитика</span></li>
+        <li><span class="skill">Маркетинг</span></li>
+        <li><span class="skill">Бизнес-управление</span></li>
+        <li><span class="skill">Математическая экономика</span></li>
+        <li><span class="skill">Спорт</span></li>
+      </ul>
     </section>
 
-    <section id="education" class="block">
-      <h2>Образование</h2>
-      <ul class="education-list">
-        <li><strong>Белорусский государственный университет</strong> — 2024–2028, математика и компьютерные науки (искусственный интеллект и математическая экономика)</li>
-        <li><strong>Средняя школа №8 г. Лиды</strong> — 2013–2024, среднее общее образование</li>
+    <section id="services" class="block">
+      <h2><span class="num">02</span>Что умею делать</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Очистка и подготовка данных</h3>
+          <p>Строю ETL-процессы: собираю данные из сырых источников, убираю дубликаты и транзакции без ID,
+            проверяю типы. Использую векторизованные вычисления, чтобы код работал быстро и не расходовал память.</p>
+        </article>
+        <article class="card">
+          <h3>Статистика и проверка гипотез</h3>
+          <p>Проверяю, действительно ли различия в метриках не случайны: подбираю тест (например, T-критерий Уэлча),
+            считаю p-value и показываю результат на понятных графиках с KDE-распределениями.</p>
+        </article>
+        <article class="card">
+          <h3>Продуктовая аналитика</h3>
+          <p>Работаю с юнит-экономикой и продуктовыми метриками, делаю RFM-анализ, оцениваю удержание клиентов
+            (Retention) и превращаю выводы в рекомендации по бюджету и рассылкам.</p>
+        </article>
+        <article class="card">
+          <h3>Базовое машинное обучение</h3>
+          <p>Строю модели на Scikit-learn (Random Forest), создаю признаки из поведения пользователей и оцениваю
+            качество через ROC-кривую и AUC-ROC. Продолжаю углублять знания.</p>
+        </article>
+        <article class="card">
+          <h3>SQL и хранилища данных</h3>
+          <p>Пишу сложные запросы: оконные функции, CTE, продвинутые объединения. Знаком с принципами
+            проектирования хранилищ — Kimball и Data Vault.</p>
+        </article>
+        <article class="card">
+          <h3>Объяснение сложного простым языком</h3>
+          <p>Благодаря опыту преподавания умею донести технические выводы до людей без технического
+            бэкграунда и аргументированно защитить решение.</p>
+        </article>
+      </div>
+
+      <h3 class="subtitle">Как я работаю</h3>
+      <ul class="principles">
+        <li><strong>От гипотезы к решению.</strong> Любой анализ начинается с вопроса бизнеса и заканчивается рекомендацией.</li>
+        <li><strong>Математическая строгость.</strong> Опираюсь на статистику и вероятностные модели, а не на интуицию.</li>
+        <li><strong>Прозрачность.</strong> Веду учёт, фиксирую прогресс и делаю процесс понятным для других.</li>
+        <li><strong>Постоянное обучение.</strong> Честно вижу пробелы и системно их закрываю.</li>
       </ul>
     </section>
 
     <section id="skills" class="block">
-      <h2>Навыки</h2>
-      <ul class="skills-list">
-        <li><span class="skill">Python</span></li>
-        <li><span class="skill">Продуктовая аналитика</span></li>
-        <li><span class="skill">Machine Learning</span></li>
-        <li><span class="skill">Маркетинг</span></li>
-        <li><span class="skill">Бизнес-управление</span></li>
-        <li><span class="skill">HTML и CSS</span></li>
-        <li><span class="skill">Git</span></li>
+      <h2><span class="num">03</span>Навыки</h2>
+      <div class="skill-groups">
+        <article class="skill-group">
+          <h3>Языки и обработка данных</h3>
+          <ul class="skills-list">
+            <li><span class="skill">Python</span></li>
+            <li><span class="skill">Pandas</span></li>
+            <li><span class="skill">NumPy</span></li>
+            <li><span class="skill">SciPy</span></li>
+            <li><span class="skill">Векторизация</span></li>
+            <li><span class="skill">C++ (алгоритмы, ООП)</span></li>
+          </ul>
+        </article>
+
+        <article class="skill-group">
+          <h3>Базы данных</h3>
+          <ul class="skills-list">
+            <li><span class="skill">SQL</span></li>
+            <li><span class="skill">Оконные функции</span></li>
+            <li><span class="skill">Индексы</span></li>
+            <li><span class="skill">CTE</span></li>
+            <li><span class="skill">Продвинутые JOIN</span></li>
+            <li><span class="skill">Kimball</span></li>
+            <li><span class="skill">Data Vault</span></li>
+          </ul>
+        </article>
+
+        <article class="skill-group">
+          <h3>Машинное обучение и статистика</h3>
+          <ul class="skills-list">
+            <li><span class="skill">Scikit-learn</span></li>
+            <li><span class="skill">Random Forest</span></li>
+            <li><span class="skill">ROC-AUC</span></li>
+            <li><span class="skill">T-критерий Уэлча</span></li>
+            <li><span class="skill">Проверка гипотез</span></li>
+          </ul>
+          <p class="note">Базовый уровень ML, активно развиваю.</p>
+        </article>
+
+        <article class="skill-group">
+          <h3>Визуализация</h3>
+          <ul class="skills-list">
+            <li><span class="skill">Matplotlib</span></li>
+            <li><span class="skill">Seaborn</span></li>
+            <li><span class="skill">EDA</span></li>
+            <li><span class="skill">KDE-распределения</span></li>
+            <li><span class="skill">ROC-кривые</span></li>
+          </ul>
+        </article>
+
+        <article class="skill-group">
+          <h3>Продуктовая аналитика и бизнес</h3>
+          <ul class="skills-list">
+            <li><span class="skill">Юнит-экономика</span></li>
+            <li><span class="skill">Продуктовые метрики</span></li>
+            <li><span class="skill">RFM-анализ</span></li>
+            <li><span class="skill">Retention</span></li>
+            <li><span class="skill">Маркетинг</span></li>
+            <li><span class="skill">Бизнес-управление</span></li>
+          </ul>
+        </article>
+
+        <article class="skill-group">
+          <h3>Инструменты и фундамент</h3>
+          <ul class="skills-list">
+            <li><span class="skill">LaTeX</span></li>
+            <li><span class="skill">Git</span></li>
+            <li><span class="skill">HTML и CSS</span></li>
+            <li><span class="skill">Математический анализ</span></li>
+            <li><span class="skill">Линейная алгебра</span></li>
+            <li><span class="skill">Вероятностные модели</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="block">
+      <h2><span class="num">04</span>Проекты и исследовательский опыт</h2>
+
+      <article class="entry">
+        <h3>Предиктивная аналитика и статистическое тестирование для E-Commerce</h3>
+        <p class="place">Задача: понять, различаются ли средние чеки, и как удержать клиентов магазина.</p>
+        <ul class="tags">
+          <li><span class="skill">Python</span></li>
+          <li><span class="skill">Scikit-learn</span></li>
+          <li><span class="skill">SciPy</span></li>
+          <li><span class="skill">Pandas</span></li>
+          <li><span class="skill">Seaborn</span></li>
+          <li><span class="skill">Random Forest</span></li>
+          <li><span class="skill">LaTeX</span></li>
+        </ul>
+        <ul class="bullets">
+          <li>Провёл комплексный анализ данных электронной коммерции. Разработал ETL-процесс для очистки датасета от транзакций без ID.</li>
+          <li>Применил T-критерий Уэлча для проверки гипотезы о различии средних чеков (AOV); доказал статистически значимую разницу (p-value &lt; 0.001) и визуализировал результаты через KDE-распределения.</li>
+          <li>Сгенерировал признаки на основе исторического поведения (RFM-анализ) и на базовом уровне построил предиктивную модель оттока (Retention) на базе Random Forest.</li>
+          <li>Оценил качество модели с помощью ROC-кривой, достигнув показателя AUC-ROC = 0.79.</li>
+          <li>Дал рекомендации по внедрению ML-модели для рассылки retention-скидок и перераспределению бюджета.</li>
+        </ul>
+        <ul class="results">
+          <li>AUC-ROC 0.79</li>
+          <li>p-value &lt; 0.001</li>
+          <li>Рекомендации по бюджету</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <h3>Разработка автоматизированного пайплайна обработки данных (ETL)</h3>
+        <p class="place">Задача: автоматизировать сбор и очистку данных из сырых источников.</p>
+        <ul class="tags">
+          <li><span class="skill">Python</span></li>
+          <li><span class="skill">Pandas</span></li>
+          <li><span class="skill">NumPy</span></li>
+          <li><span class="skill">Exceptions Handling</span></li>
+        </ul>
+        <ul class="bullets">
+          <li>Разработал локальный скрипт для сбора данных из сырых текстовых и табличных источников.</li>
+          <li>Реализовал сквозную логику обработки: фильтрация дубликатов, валидация типов.</li>
+          <li>Применил векторизованные вычисления для оптимизации производительности и снижения нагрузки на память.</li>
+        </ul>
+        <ul class="results">
+          <li>Сквозной ETL</li>
+          <li>Валидация данных</li>
+          <li>Меньше нагрузки на память</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="experience" class="block">
+      <h2><span class="num">05</span>Опыт работы</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Репетитор по математике и программированию</h3>
+          <span class="dates">2024 – 2026</span>
+        </div>
+        <p class="place">Частная практика / Самозанятость</p>
+        <ul class="bullets">
+          <li>Разрабатывал индивидуальные программы обучения по техническим и алгоритмическим дисциплинам.</li>
+          <li>Самостоятельно организовывал рабочий процесс, вёл учёт занятий и оценивал динамику прогресса.</li>
+          <li>Внедрил в практику собственный сайт с функционалом личного кабинета ученика. Использовал его для систематизации материалов и прозрачного контроля успеваемости, обеспечивая высокий уровень ответственности и профессиональной организации учебного процесса.</li>
+        </ul>
+        <ul class="results">
+          <li>Собственный сайт с личным кабинетом</li>
+          <li>Индивидуальные программы</li>
+          <li>Учёт и контроль прогресса</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="education" class="block">
+      <h2><span class="num">06</span>Образование</h2>
+      <ul class="education-list">
+        <li class="edu-item">
+          <div class="edu-main">
+            <h3>Белорусский государственный университет (БГУ), Минск</h3>
+            <p class="place">Механико-математический факультет (ММФ), профилизация: искусственный интеллект и математическая экономика</p>
+            <p>Студент дневного отделения. Прохождение углублённых курсов фундаментальных математических и ИТ-дисциплин.</p>
+          </div>
+          <span class="dates">2024 – 2028 (ожидаемый выпуск)</span>
+        </li>
+        <li class="edu-item">
+          <div class="edu-main">
+            <h3>Средняя школа №8 г. Лиды</h3>
+            <p class="place">Среднее общее образование</p>
+          </div>
+          <span class="dates">2013 – 2024</span>
+        </li>
       </ul>
+    </section>
+
+    <section id="path" class="block">
+      <h2><span class="num">07</span>Мой путь</h2>
+      <ol class="timeline">
+        <li>
+          <span class="t-year">2013</span>
+          <div class="t-body">
+            <h3>Школа №8, г. Лида</h3>
+            <p>Начало учёбы и первый интерес к математике.</p>
+          </div>
+        </li>
+        <li>
+          <span class="t-year">2024</span>
+          <div class="t-body">
+            <h3>Поступление в БГУ</h3>
+            <p>ММФ, профилизация «Искусственный интеллект и математическая экономика».</p>
+          </div>
+        </li>
+        <li>
+          <span class="t-year">2024–2026</span>
+          <div class="t-body">
+            <h3>Репетиторство и собственный сайт</h3>
+            <p>Преподаю математику и программирование, создаю личный кабинет ученика.</p>
+          </div>
+        </li>
+        <li>
+          <span class="t-year">2026</span>
+          <div class="t-body">
+            <h3>3 курс и проекты по данным</h3>
+            <p>Анализ данных E-Commerce, предиктивная модель оттока и ETL-пайплайн.</p>
+          </div>
+        </li>
+        <li>
+          <span class="t-year">2028</span>
+          <div class="t-body">
+            <h3>Выпуск и карьера в аналитике</h3>
+            <p>Цель — стать сильным продуктовым аналитиком и применять математику в реальном бизнесе.</p>
+          </div>
+        </li>
+      </ol>
     </section>
   </main>
 
   <footer id="contacts" class="footer">
-    <h2>Контакты</h2>
+    <h2>Давай работать вместе</h2>
+    <p class="footer-text">Открыт к предложениям о стажировке и работе в аналитике данных.</p>
     <div class="contacts-list">
-      <a href="mailto:farmak8029@gmail.com">farmak8029@gmail.com</a>
-      <a href="https://github.com/uraganNN333" target="_blank" rel="noopener">GitHub</a>
-      <a href="tel:+375299267478">+375 29 926-74-78</a>
+      <a class="contact" href="mailto:farmak8029@gmail.com">farmak8029@gmail.com</a>
+      <a class="contact" href="https://github.com/uraganNN333" target="_blank" rel="noopener">GitHub: uraganNN333</a>
+      <a class="contact" href="tel:+375299267478">+375 29 926-74-78</a>
     </div>
+    <p class="copy">© Шиш Кирилл Сергеевич</p>
   </footer>
 </body>
 </html>

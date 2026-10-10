@@ -2,111 +2,347 @@
   box-sizing: border-box;
 }
 
+/* Цвета лежат в переменных: поменял здесь, поменялось на всей странице */
+:root {
+  --bg: #080c1a;
+  --card: rgba(255, 255, 255, 0.05);
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #e5e9f5;
+  --muted: #98a2c0;
+  --cyan: #22d3ee;
+  --violet: #a855f7;
+  --pink: #f472b6;
+}
+
+html {
+  scroll-behavior: smooth;         /* плавная прокрутка по якорным ссылкам */
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;          /* блоки страницы идут сверху вниз */
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-  color: #222;
-  background: #f4f6fb;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  line-height: 1.65;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 0%, rgba(168, 85, 247, 0.28), transparent 40%),
+    radial-gradient(circle at 90% 15%, rgba(34, 211, 238, 0.2), transparent 35%),
+    var(--bg);
+}
+
+h2,
+h3,
+p {
+  margin-top: 0;
 }
 
 a {
-  color: #2f5bea;
+  color: var(--cyan);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 a:hover {
-  color: #c2185b;
+  color: var(--pink);
   text-decoration: underline;
 }
 
-/* Шапка: фото слева, текст справа */
+/* ---------- Шапка ---------- */
 .header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;                 /* на узком экране текст уедет под фото */
   align-items: center;             /* выравнивание по вертикали */
   justify-content: center;         /* выравнивание по горизонтали */
-  gap: 24px;
-  padding: 32px 16px;
-  background: #2f5bea;
-  color: #fff;
+  gap: 48px;
+  padding: 72px 24px 56px;
 }
 
 .avatar {
   border-radius: 50%;
-  border: 4px solid #fff;
+  border: 5px solid transparent;
   object-fit: cover;
+  /* градиентная рамка: нижний слой фона виден только под прозрачной рамкой */
+  background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(135deg, var(--cyan), var(--violet), var(--pink)) border-box;
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 25px rgba(34, 211, 238, 0.4);
+  }
+  to {
+    box-shadow: 0 0 55px rgba(168, 85, 247, 0.7);
+  }
+}
+
+.header-text {
+  max-width: 580px;
+}
+
+.hello {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cyan);
 }
 
 .header-text h1 {
-  margin: 0 0 4px;
-}
-
-.header-text p {
-  margin: 0;
+  margin: 0 0 8px;
+  font-size: 3.4rem;
+  line-height: 1.1;
+  /* градиентный текст: фон обрезается по форме букв */
+  background: linear-gradient(90deg, #fff, var(--cyan), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .position {
-  font-size: 1.2rem;
+  margin-bottom: 6px;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 .slogan {
-  font-style: italic;
+  color: var(--muted);
 }
 
-/* Навигация */
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facts li {
+  padding: 4px 14px;
+  font-size: 0.9rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button {
+  padding: 12px 24px;
+  font-weight: bold;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.button:hover {
+  color: #fff;
+  text-decoration: none;
+  border-color: var(--cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.25);
+}
+
+.button-primary {
+  color: #fff;
+  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  border-color: transparent;
+}
+
+/* ---------- Навигация ---------- */
 .nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
-  padding: 12px 16px;
-  background: #fff;
-  border-bottom: 1px solid #dde2ee;
+  gap: 8px 28px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-/* Основной контент */
+.nav a {
+  font-weight: bold;
+  color: var(--text);
+}
+
+.nav a:hover {
+  color: var(--cyan);
+}
+
+/* ---------- Основное содержимое ---------- */
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 24px 16px;
+  padding: 40px 16px;
   flex: 1;                         /* занимает всё свободное место между nav и footer */
 }
 
 .block {
   width: 100%;
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);     /* эффект матового стекла */
 }
 
-.block h2 {
-  margin-top: 0;
+.block > h2 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  font-size: 1.7rem;
 }
 
-.education-list {
+.num {
+  font-size: 1rem;
+  padding: 4px 10px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--violet), var(--cyan));
+  border-radius: 8px;
+}
+
+.subtitle {
+  margin: 32px 0 14px;
+  font-size: 1.15rem;
+  color: var(--cyan);
+}
+
+/* ---------- Цифры в блоке «О себе» ---------- */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stats li {
+  flex: 1 1 150px;                 /* растут и сжимаются, база 150px */
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  gap: 4px;
+  padding: 18px 12px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.stats li:hover {
+  transform: translateY(-4px);
+  border-color: var(--violet);
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Карточки «Что умею» ---------- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.card {
+  flex: 1 1 280px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+  box-shadow: 0 10px 28px rgba(34, 211, 238, 0.15);
+}
+
+.card h3 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.principles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin: 0;
   padding-left: 20px;
 }
 
-/* Навыки как «пилюли» */
-.skills-list {
+/* ---------- Навыки ---------- */
+.skill-groups {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 18px;
+}
+
+.skill-group {
+  flex: 1 1 290px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.skill-group:hover {
+  transform: translateY(-4px);
+  border-color: var(--violet);
+  box-shadow: 0 10px 28px rgba(168, 85, 247, 0.2);
+}
+
+.skill-group h3 {
+  margin-bottom: 14px;
+  font-size: 1rem;
+  color: var(--cyan);
+}
+
+.skills-list,
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -114,40 +350,221 @@ a:hover {
 
 .skill {
   display: inline-block;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: #e3e9ff;
-  color: #2f5bea;
+  padding: 4px 12px;
+  font-size: 0.88rem;
   font-weight: bold;
+  color: #e9d5ff;
+  background: rgba(168, 85, 247, 0.18);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 999px;
 }
 
-/* Подвал с контактами */
+.note {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* ---------- Проекты, опыт, образование ---------- */
+.entry {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 0 24px 20px;
+  margin-bottom: 24px;
+  border-left: 3px solid var(--violet);
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.entry h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #fff;
+}
+
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;  /* название слева, даты справа */
+  align-items: baseline;
+  gap: 4px 16px;
+}
+
+.dates {
+  font-size: 0.9rem;
+  color: var(--cyan);
+  white-space: nowrap;
+}
+
+.place {
+  margin: 0;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.results li {
+  padding: 4px 14px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #cffafe;
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  border-radius: 8px;
+}
+
+/* Образование — список */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edu-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px 24px;
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  transition: border-color 0.2s;
+}
+
+.edu-item:hover {
+  border-color: var(--cyan);
+}
+
+.edu-main {
+  flex: 1 1 400px;
+}
+
+.edu-main h3 {
+  margin-bottom: 4px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.edu-main p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Мой путь (хронология) ---------- */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px 20px;
+}
+
+.t-year {
+  flex: 0 0 110px;                 /* фиксированная ширина колонки с годом */
+  padding: 6px 0;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, var(--violet), var(--cyan));
+  border-radius: 10px;
+}
+
+.t-body {
+  flex: 1 1 300px;
+}
+
+.t-body h3 {
+  margin-bottom: 2px;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.t-body p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- Подвал ---------- */
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 24px 16px;
-  background: #1f2937;
-  color: #fff;
+  gap: 14px;
+  padding: 56px 16px 32px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border-top: 1px solid var(--line);
 }
 
 .footer h2 {
   margin: 0;
+  font-size: 2rem;
+}
+
+.footer-text {
+  margin: 0;
+  color: var(--muted);
 }
 
 .contacts-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
+  gap: 14px;
+  margin-top: 10px;
 }
 
-.footer a {
-  color: #9db4ff;
+.contact {
+  padding: 12px 22px;
+  font-weight: bold;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
-.footer a:hover {
+.contact:hover {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
+  border-color: var(--pink);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(244, 114, 182, 0.25);
+}
+
+.copy {
+  margin: 24px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
