@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>МатКод — репетитор по математике и программированию</title>
+  <meta name="description" content="Индивидуальные занятия по математике и программированию: Python, C++, школьная и высшая математика.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header" id="top">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Открыть или закрыть меню">
+      <a class="logo" href="#top">
+        <span class="logo-mark">∑</span>
+        <span class="logo-text">МатКод</span>
+      </a>
+      <label for="menu-toggle" class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <nav class="nav" aria-label="Основное меню">
+        <a href="#benefits">Преимущества</a>
+        <a href="#directions">Направления</a>
+        <a href="#process">Как проходит</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#contacts">Контакты</a>
+        <a class="button button-primary nav-cta" href="#contacts">Записаться</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">Репетитор · математика и программирование</p>
+          <h1>Математика и программирование — понятно и без стресса</h1>
+          <p class="hero-lead">Индивидуальные занятия для школьников и студентов: подтянем базу, разберём сложные темы и научимся писать код на Python и C++. Каждое занятие фиксируется в личном кабинете, поэтому прогресс всегда на виду.</p>
+          <div class="hero-buttons">
+            <a class="button button-primary" href="#contacts">Записаться на пробное</a>
+            <a class="button button-ghost" href="#process">Как это работает</a>
+          </div>
+          <ul class="hero-stats">
+            <li><strong>2 года</strong><span>практики преподавания</span></li>
+            <li><strong>ММФ БГУ</strong><span>сильная математическая база</span></li>
+            <li><strong>Личный кабинет</strong><span>для каждого ученика</span></li>
+          </ul>
+        </div>
+        <div class="hero-image">
+          <img src="img/hero.svg" alt="Иллюстрация: график функции, окно с кодом и знак суммы" width="520" height="440">
+        </div>
+      </section>
+
+      <section class="benefits" id="benefits">
+        <header class="section-head">
+          <h2>Почему со мной удобно учиться</h2>
+          <p>Меньше зубрёжки, больше понимания и практики.</p>
+        </header>
+        <div class="cards">
+          <article class="card">
+            <span class="card-icon">🎯</span>
+            <h3>Индивидуальная программа</h3>
+            <p>План под вашу цель и уровень: экзамен, университет или первые шаги в коде.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">🧠</span>
+            <h3>Понятные объяснения</h3>
+            <p>Разбираю сложное простыми словами и показываю, откуда берутся формулы.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">📊</span>
+            <h3>Личный кабинет ученика</h3>
+            <p>Материалы, задания и динамика успеваемости собраны на отдельном сайте.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">🧪</span>
+            <h3>Практика вместо зубрёжки</h3>
+            <p>Больше задач и мини-проектов, меньше заучивания конспектов.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">🔍</span>
+            <h3>Контроль прогресса</h3>
+            <p>Веду учёт занятий, и мы вместе смотрим, что уже получается, а что стоит подтянуть.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">🤝</span>
+            <h3>Спокойная атмосфера</h3>
+            <p>Вопросы можно задавать сколько угодно, а ошибки — часть обучения.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="directions" id="directions">
+        <header class="section-head">
+          <h2>Направления</h2>
+          <p>Выберите то, что нужно именно вам.</p>
+        </header>
+        <div class="cards cards-directions">
+          <article class="card card-accent">
+            <span class="card-tag">Школа</span>
+            <h3>Школьная математика</h3>
+            <p>Подтягиваем базу и готовимся к контрольным и экзаменам.</p>
+            <ul class="card-list">
+              <li>Алгебра и функции</li>
+              <li>Геометрия</li>
+              <li>Подготовка к экзаменам</li>
+            </ul>
+          </article>
+          <article class="card card-accent">
+            <span class="card-tag">Университет</span>
+            <h3>Высшая математика</h3>
+            <p>Помогаю студентам разобраться в основных курсах первых лет.</p>
+            <ul class="card-list">
+              <li>Математический анализ</li>
+              <li>Линейная алгебра</li>
+              <li>Вероятность и статистика</li>
+            </ul>
+          </article>
+          <article class="card card-accent">
+            <span class="card-tag">Код</span>
+            <h3>Программирование</h3>
+            <p>От первых программ до алгоритмов и работы с данными.</p>
+            <ul class="card-list">
+              <li>Python и Pandas</li>
+              <li>C++ и ООП</li>
+              <li>Алгоритмы</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="process" id="process">
+        <header class="section-head">
+          <h2>Как проходит обучение</h2>
+          <p>Четыре простых шага.</p>
+        </header>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">1</span>
+            <div class="step-body">
+              <h3>Знакомство</h3>
+              <p>Обсуждаем цель и проверяем текущий уровень.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num">2</span>
+            <div class="step-body">
+              <h3>План</h3>
+              <p>Составляю индивидуальную программу и расписание.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num">3</span>
+            <div class="step-body">
+              <h3>Занятия</h3>
+              <p>Объясняю тему, решаем задачи и пишем код.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num">4</span>
+            <div class="step-body">
+              <h3>Контроль</h3>
+              <p>Отмечаю прогресс в личном кабинете и корректирую план.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="faq" id="faq">
+        <header class="section-head">
+          <h2>Частые вопросы</h2>
+          <p>Если не нашли ответ, напишите мне.</p>
+        </header>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Как проходят занятия?</summary>
+            <p>Формат и расписание обсуждаем на пробной встрече и подбираем под вас.</p>
+          </details>
+          <details class="faq-item">
+            <summary>С какого уровня можно начать?</summary>
+            <p>С любого. Начнём с короткой диагностики и подберём комфортный темп.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Нужен ли свой компьютер для программирования?</summary>
+            <p>Да, подойдёт обычный ноутбук. Нужные программы установим на первом занятии.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Что такое личный кабинет?</summary>
+            <p>Это страница ученика на моём сайте: материалы, домашние задания и динамика прогресса.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Сколько это стоит?</summary>
+            <p>Стоимость зависит от формата и количества занятий. Напишите мне, и я назову условия.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="contact" id="contacts">
+        <div class="contact-info">
+          <h2>Записаться на пробное занятие</h2>
+          <p>Оставьте имя и почту, и я свяжусь с вами, чтобы обсудить цель и подобрать время.</p>
+          <ul class="contact-links">
+            <li><a href="mailto:farmak8029@gmail.com"><span>✉️</span>farmak8029@gmail.com</a></li>
+            <li><a href="https://github.com/uraganNN333" target="_blank" rel="noopener"><span>💻</span>github.com/uraganNN333</a></li>
+            <li><span class="contact-place"><span>📍</span>Минск / Лида</span></li>
+          </ul>
+        </div>
+
+        <form class="form">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Имя</label>
+              <input id="name" name="name" type="text" placeholder="Как к вам обращаться?" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="email">
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Сообщение</label>
+            <textarea id="message" name="message" rows="5" placeholder="Расскажите о цели и текущем уровне"></textarea>
+          </div>
+          <button type="button" class="button button-primary form-button">Отправить</button>
+          <p class="form-note">Учебная вёрстка: отправка формы не реализована.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="logo logo-light" href="#top">
+        <span class="logo-mark">∑</span>
+        <span class="logo-text">МатКод</span>
+      </a>
+      <nav class="footer-nav" aria-label="Меню в подвале">
+        <a href="#benefits">Преимущества</a>
+        <a href="#directions">Направления</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <p class="copy">© 2026 МатКод. Учебный проект.</p>
+    </footer>
+  </div>
+</body>
+</html>

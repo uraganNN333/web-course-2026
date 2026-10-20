@@ -2,82 +2,215 @@
   box-sizing: border-box;
 }
 
+/* Палитра в переменных: меняешь тут — меняется везде */
+:root {
+  --bg: #0a0a14;
+  --glass: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.14);
+  --text: #f1f1f8;
+  --muted: #9a9ab5;
+  --lime: #c4ff3d;
+  --cyan: #22d3ee;
+  --pink: #ff4ecd;
+  --violet: #8b5cf6;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6fb;
-  color: #222;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 16px;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  color: var(--text);
+  /* несколько цветных «пятен» поверх тёмного фона */
+  background:
+    radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.45), transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(255, 78, 205, 0.3), transparent 38%),
+    radial-gradient(circle at 50% 100%, rgba(34, 211, 238, 0.28), transparent 45%),
+    var(--bg);
 }
 
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Карточка приложения ---------- */
 .app {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 24px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 560px;
+  padding: 28px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  backdrop-filter: blur(18px);     /* матовое стекло */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(139, 92, 246, 0.18);
 }
 
-h1 {
-  margin-top: 0;
+.app-header {
+  margin-bottom: 22px;
   text-align: center;
 }
 
+h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--lime), var(--cyan), var(--pink));
+  -webkit-background-clip: text;   /* градиент виден только внутри букв */
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+/* ---------- Форма ---------- */
 .todo-form {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .todo-form input {
   flex: 1;
-  padding: 10px;
+  min-width: 0;
+  padding: 14px 18px;
   font-size: 1rem;
-  border: 1px solid #c5cbe0;
-  border-radius: 8px;
+  font-family: inherit;
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-button {
-  padding: 10px 14px;
+.todo-form input::placeholder {
+  color: var(--muted);
+}
+
+.todo-form input:focus {
+  border-color: var(--lime);
+  box-shadow: 0 0 0 4px rgba(196, 255, 61, 0.18);
+}
+
+/* «тряска» поля, когда ввели пустую задачу */
+.todo-form input.shake {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.add-button {
+  padding: 0 22px;
   font-size: 1rem;
-  color: #fff;
-  background: #2f5bea;
+  font-weight: bold;
+  color: #0a0a14;
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s;
+  border-radius: 16px;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
-button:hover {
-  background: #1f44c4;
+.add-button:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 22px rgba(196, 255, 61, 0.35);
+}
+
+.add-button:active {
+  transform: scale(0.96);
 }
 
 .warning {
-  margin: 8px 0 0;
-  color: #c62828;
+  margin: 10px 4px 0;
+  color: var(--pink);
 }
 
+/* ---------- Прогресс ---------- */
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0 18px;
+}
+
+.progress {
+  flex: 1;
+  height: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.progress::-webkit-progress-bar {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.progress::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--lime), var(--cyan));
+  border-radius: 999px;
+  transition: width 0.4s;
+}
+
+.progress::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--lime), var(--cyan));
+  border-radius: 999px;
+}
+
+.percent {
+  min-width: 42px;
+  text-align: right;
+  font-weight: bold;
+  color: var(--lime);
+}
+
+/* ---------- Фильтры ---------- */
 .filters {
   display: flex;
-  gap: 8px;
-  margin: 16px 0;
+  gap: 6px;
+  padding: 5px;
+  margin-bottom: 18px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 999px;
 }
 
 .filter {
   flex: 1;
-  color: #2f5bea;
-  background: #e3e9ff;
+  padding: 9px 6px;
+  font-size: 0.92rem;
+  font-weight: bold;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  transition: color 0.2s, background 0.2s;
 }
 
 .filter:hover {
-  background: #d0daff;
+  color: var(--text);
 }
 
 .filter.active {
   color: #fff;
-  background: #2f5bea;
+  background: linear-gradient(135deg, var(--pink), var(--violet));
 }
 
+/* ---------- Список задач ---------- */
 .todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -86,9 +219,68 @@ button:hover {
 .todo-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 0;
-  border-bottom: 1px solid #eceff7;
+  gap: 14px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  transition: transform 0.15s, border-color 0.2s, opacity 0.2s;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--violet);
+}
+
+/* только что добавленная задача «выпрыгивает» */
+.todo-item.pop {
+  animation: pop 0.35s ease-out;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Кастомный чекбокс: прячем стандартный вид и рисуем свой */
+.toggle {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 2px solid var(--muted);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.toggle:hover {
+  border-color: var(--lime);
+  transform: scale(1.1);
+}
+
+.toggle:checked {
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
+  border-color: transparent;
+}
+
+.toggle:checked::after {
+  content: "✓";
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #0a0a14;
 }
 
 .todo-item .text {
@@ -98,20 +290,43 @@ button:hover {
 
 .todo-item.completed .text {
   text-decoration: line-through;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .delete {
-  padding: 6px 10px;
-  background: #e53935;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: bold;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
 }
 
 .delete:hover {
-  background: #b71c1c;
+  color: #fff;
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
+/* ---------- Пустое состояние и счётчик ---------- */
+.empty {
+  margin: 18px 0 4px;
+  padding: 22px 12px;
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--muted);
+  border: 2px dashed var(--line);
+  border-radius: 18px;
 }
 
 .counter {
-  margin-bottom: 0;
+  margin: 20px 0 0;
+  padding: 10px 16px;
   text-align: center;
-  color: #555;
+  font-weight: bold;
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 999px;
 }

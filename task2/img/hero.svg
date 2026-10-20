@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 440" role="img" aria-labelledby="hero-title">
+  <title id="hero-title">Иллюстрация: график функции, окно с кодом и знак суммы</title>
+  <defs>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#a855f7" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="260" cy="220" r="190" fill="url(#glow)"/>
+  <circle cx="460" cy="360" r="38" fill="#c4ff3d" opacity="0.9"/>
+  <circle cx="60" cy="380" r="20" fill="#f472b6" opacity="0.9"/>
+
+  <!-- карточка с графиком -->
+  <g>
+    <rect x="30" y="50" width="300" height="210" rx="26" fill="#ffffff"/>
+    <line x1="64" y1="220" x2="300" y2="220" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="64" y1="80" x2="64" y2="220" stroke="#cbd5e1" stroke-width="2"/>
+    <path d="M70 100 Q182 300 294 100" fill="none" stroke="url(#line)" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="182" cy="200" r="8" fill="#4f46e5"/>
+    <text x="206" y="104" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a">f(x) = x²</text>
+  </g>
+
+  <!-- окно с кодом -->
+  <g>
+    <rect x="190" y="230" width="300" height="170" rx="26" fill="#0f172a"/>
+    <circle cx="224" cy="262" r="6" fill="#f472b6"/>
+    <circle cx="246" cy="262" r="6" fill="#facc15"/>
+    <circle cx="268" cy="262" r="6" fill="#4ade80"/>
+    <text x="222" y="304" font-family="Consolas, monospace" font-size="17" fill="#22d3ee">def solve(x):</text>
+    <text x="244" y="332" font-family="Consolas, monospace" font-size="17" fill="#e2e8f0">return x ** 2</text>
+    <text x="222" y="364" font-family="Consolas, monospace" font-size="17" fill="#c4ff3d">print(solve(7))</text>
+  </g>
+
+  <!-- знак суммы -->
+  <g>
+    <circle cx="410" cy="110" r="52" fill="#c4ff3d"/>
+    <text x="410" y="132" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="700" text-anchor="middle" fill="#0f172a">∑</text>
+  </g>
+</svg>

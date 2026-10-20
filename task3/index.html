@@ -9,13 +9,21 @@
 </head>
 <body>
   <main class="app">
-    <h1>Список задач</h1>
+    <header class="app-header">
+      <h1>Мои дела ✨</h1>
+      <p class="subtitle">Планируй день и закрывай задачи.</p>
+    </header>
 
     <form id="todo-form" class="todo-form">
-      <input id="todo-input" type="text" placeholder="Что нужно сделать?" autocomplete="off">
-      <button type="submit">Добавить</button>
+      <input id="todo-input" type="text" placeholder="Что делаем сегодня?" aria-label="Текст задачи" autocomplete="off">
+      <button type="submit" class="add-button">Добавить</button>
     </form>
-    <p id="warning" class="warning" hidden>Введите текст задачи.</p>
+    <p id="warning" class="warning" hidden>Сначала напиши, что нужно сделать 🙃</p>
+
+    <div class="progress-row">
+      <progress id="progress" class="progress" value="0" max="1"></progress>
+      <span id="percent" class="percent">0%</span>
+    </div>
 
     <div class="filters">
       <button type="button" class="filter active" data-filter="all">Все</button>
@@ -24,6 +32,7 @@
     </div>
 
     <ul id="todo-list" class="todo-list"></ul>
+    <p id="empty" class="empty" hidden></p>
 
     <p id="counter" class="counter"></p>
   </main>
