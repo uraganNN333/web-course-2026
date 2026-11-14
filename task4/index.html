@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Быки и коровы</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Быки и коровы 🐂🐄</h1>
+      <p class="subtitle">Угадай число из 4 разных цифр.</p>
+    </header>
+
+    <details class="rules">
+      <summary>Правила</summary>
+      <p>Компьютер загадал число из 4 неповторяющихся цифр (может начинаться с 0).
+        После каждой попытки ты узнаешь: <b>бык</b> — цифра угадана и стоит на своём месте,
+        <b>корова</b> — цифра есть в числе, но стоит на другом месте.</p>
+    </details>
+
+    <form id="guess-form" class="guess-form">
+      <input id="guess-input" type="text" inputmode="numeric" maxlength="4"
+             placeholder="Например, 1234" aria-label="Твой вариант" autocomplete="off">
+      <button id="check-button" type="submit" class="button">Проверить</button>
+    </form>
+    <p id="message" class="message" hidden></p>
+
+    <div class="stats">
+      <p>Попыток: <span id="attempts">0</span></p>
+      <button id="new-game" type="button" class="button button-secondary">Новая игра</button>
+    </div>
+
+    <ol id="history" class="history"></ol>
+    <p id="empty" class="empty">Пока ни одной попытки. Вводи первое число 👀</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,286 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Палитра в переменных: меняешь тут — меняется везде */
+:root {
+  --bg: #0a0a14;
+  --glass: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.14);
+  --text: #f1f1f8;
+  --muted: #9a9ab5;
+  --lime: #c4ff3d;
+  --cyan: #22d3ee;
+  --pink: #ff4ecd;
+  --violet: #8b5cf6;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.45), transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(255, 78, 205, 0.3), transparent 38%),
+    radial-gradient(circle at 50% 100%, rgba(34, 211, 238, 0.28), transparent 45%),
+    var(--bg);
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ---------- Карточка приложения ---------- */
+.app {
+  width: 100%;
+  padding: 28px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  backdrop-filter: blur(18px);     /* матовое стекло */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(139, 92, 246, 0.18);
+}
+
+.app-header {
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--lime), var(--cyan), var(--pink));
+  -webkit-background-clip: text;   /* градиент виден только внутри букв */
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+/* ---------- Кнопки ---------- */
+.button {
+  min-height: 48px;
+  padding: 0 22px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0a0a14;
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
+  border: none;
+  border-radius: 16px;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(196, 255, 61, 0.35);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.button-secondary {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--line);
+}
+
+.button-secondary:hover:not(:disabled) {
+  border-color: var(--pink);
+  box-shadow: 0 8px 22px rgba(255, 78, 205, 0.25);
+}
+
+/* =====================================================================
+   Стили лабы 4
+   ===================================================================== */
+.app {
+  max-width: 520px;
+}
+
+.rules {
+  margin-bottom: 18px;
+  padding: 0 16px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.rules summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rules p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.rules b {
+  color: var(--text);
+}
+
+.guess-form {
+  display: flex;
+  gap: 10px;
+}
+
+.guess-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 18px;
+  font-size: 1.4rem;
+  letter-spacing: 0.4em;
+  text-align: center;
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.guess-form input::placeholder {
+  font-size: 1rem;
+  letter-spacing: normal;
+  color: var(--muted);
+}
+
+.guess-form input:focus {
+  border-color: var(--lime);
+  box-shadow: 0 0 0 4px rgba(196, 255, 61, 0.18);
+}
+
+.guess-form input:disabled {
+  opacity: 0.5;
+}
+
+.message {
+  margin: 12px 4px 0;
+  font-weight: bold;
+}
+
+.message.error {
+  color: var(--pink);
+}
+
+.message.win {
+  padding: 14px;
+  text-align: center;
+  font-size: 1.15rem;
+  color: #0a0a14;
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
+  border-radius: 16px;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.stats p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.stats span {
+  color: var(--lime);
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.history li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.history li.new {
+  animation: pop 0.3s ease-out;
+}
+
+.history li.winner {
+  border-color: var(--lime);
+  box-shadow: 0 0 20px rgba(196, 255, 61, 0.25);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.attempt-number {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.attempt-guess {
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
+
+.attempt-result {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.bulls {
+  color: var(--lime);
+}
+
+.cows {
+  color: var(--cyan);
+}
+
+.empty {
+  margin: 0;
+  padding: 18px;
+  text-align: center;
+  color: var(--muted);
+  border: 2px dashed var(--line);
+  border-radius: 16px;
+}
