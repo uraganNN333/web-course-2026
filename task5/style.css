@@ -1,0 +1,257 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Палитра в переменных: меняешь тут — меняется везде */
+:root {
+  --bg: #0a0a14;
+  --glass: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.14);
+  --text: #f1f1f8;
+  --muted: #9a9ab5;
+  --lime: #c4ff3d;
+  --cyan: #22d3ee;
+  --pink: #ff4ecd;
+  --violet: #8b5cf6;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.45), transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(255, 78, 205, 0.3), transparent 38%),
+    radial-gradient(circle at 50% 100%, rgba(34, 211, 238, 0.28), transparent 45%),
+    var(--bg);
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ---------- Карточка приложения ---------- */
+.app {
+  width: 100%;
+  padding: 28px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  backdrop-filter: blur(18px);     /* матовое стекло */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(139, 92, 246, 0.18);
+}
+
+.app-header {
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--lime), var(--cyan), var(--pink));
+  -webkit-background-clip: text;   /* градиент виден только внутри букв */
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+/* ---------- Кнопки ---------- */
+.button {
+  min-height: 48px;
+  padding: 0 22px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0a0a14;
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
+  border: none;
+  border-radius: 16px;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(196, 255, 61, 0.35);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.button-secondary {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--line);
+}
+
+.button-secondary:hover:not(:disabled) {
+  border-color: var(--pink);
+  box-shadow: 0 8px 22px rgba(255, 78, 205, 0.25);
+}
+
+/* =====================================================================
+   Стили лабы 5
+   ===================================================================== */
+.app {
+  max-width: 460px;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 12px;
+}
+
+.score {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.score-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.score-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--lime);
+}
+
+.status {
+  min-height: 1.5em;
+  margin: 18px 0;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.status.lose {
+  color: var(--pink);
+}
+
+/* Поле 2×2, обрезанное по кругу */
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.pad {
+  border: none;
+  filter: brightness(0.55) saturate(0.8);
+  transition: filter 0.12s, transform 0.12s, box-shadow 0.12s;
+}
+
+.pad:disabled {
+  cursor: not-allowed;
+}
+
+.pad:not(:disabled):hover {
+  filter: brightness(0.75);
+}
+
+/* Подсветка кнопки во время показа и при нажатии */
+.pad.active {
+  filter: brightness(1.25) saturate(1.2);
+  transform: scale(0.97);
+}
+
+.pad-green {
+  background: #22c55e;
+  border-top-left-radius: 100%;
+}
+
+.pad-red {
+  background: #ef4444;
+  border-top-right-radius: 100%;
+}
+
+.pad-yellow {
+  background: #facc15;
+  border-bottom-left-radius: 100%;
+}
+
+.pad-blue {
+  background: #3b82f6;
+  border-bottom-right-radius: 100%;
+}
+
+.pad-green.active {
+  box-shadow: 0 0 40px #22c55e;
+}
+
+.pad-red.active {
+  box-shadow: 0 0 40px #ef4444;
+}
+
+.pad-yellow.active {
+  box-shadow: 0 0 40px #facc15;
+}
+
+.pad-blue.active {
+  box-shadow: 0 0 40px #3b82f6;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.sound {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.sound input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--lime);
+}
+
+.hint {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}

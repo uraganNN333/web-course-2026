@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simon</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Simon 🎵</h1>
+      <p class="subtitle">Запомни последовательность и повтори её.</p>
+    </header>
+
+    <div class="scoreboard">
+      <div class="score">
+        <span class="score-label">Уровень</span>
+        <span id="level" class="score-value">0</span>
+      </div>
+      <div class="score">
+        <span class="score-label">Рекорд</span>
+        <span id="best" class="score-value">0</span>
+      </div>
+    </div>
+
+    <p id="status" class="status">Нажми «Старт», чтобы начать</p>
+
+    <div id="board" class="board">
+      <button type="button" class="pad pad-green" data-pad="0" aria-label="Зелёная кнопка (1)" disabled></button>
+      <button type="button" class="pad pad-red" data-pad="1" aria-label="Красная кнопка (2)" disabled></button>
+      <button type="button" class="pad pad-yellow" data-pad="2" aria-label="Жёлтая кнопка (3)" disabled></button>
+      <button type="button" class="pad pad-blue" data-pad="3" aria-label="Синяя кнопка (4)" disabled></button>
+    </div>
+
+    <div class="controls">
+      <button id="start" type="button" class="button">Старт</button>
+      <label class="sound">
+        <input id="sound" type="checkbox" checked>
+        Звук
+      </label>
+    </div>
+    <p class="hint">Можно играть клавишами 1, 2, 3, 4.</p>
+  </main>
+</body>
+</html>
