@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лента постов</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Лента постов</h1>
+      <p class="subtitle">Листай вниз — новые посты подгрузятся сами.</p>
+    </header>
+
+    <div class="toolbar">
+      <input id="search" class="search" type="search" placeholder="Поиск по заголовку…" aria-label="Поиск по заголовку" autocomplete="off">
+      <p id="counter" class="counter">Загружено: 0</p>
+    </div>
+    <p id="search-note" class="search-note" hidden></p>
+
+    <section id="posts" class="posts" aria-live="polite"></section>
+    <p id="no-results" class="info" hidden>Среди загруженных постов ничего не найдено 🤷</p>
+
+    <div id="loader" class="loader" hidden>
+      <span class="spinner"></span>
+      Загрузка…
+    </div>
+
+    <div id="error" class="error" hidden>
+      <p id="error-text"></p>
+      <button id="retry" type="button" class="button">Повторить</button>
+    </div>
+
+    <p id="end" class="info" hidden>Больше постов нет ✨</p>
+
+    <div id="sentinel" class="sentinel"></div>
+  </main>
+</body>
+</html>

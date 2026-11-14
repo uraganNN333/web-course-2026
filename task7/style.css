@@ -1,0 +1,276 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Палитра в переменных: меняешь тут — меняется везде */
+:root {
+  --bg: #0a0a14;
+  --glass: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.14);
+  --text: #f1f1f8;
+  --muted: #9a9ab5;
+  --lime: #c4ff3d;
+  --cyan: #22d3ee;
+  --pink: #ff4ecd;
+  --violet: #8b5cf6;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.45), transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(255, 78, 205, 0.3), transparent 38%),
+    radial-gradient(circle at 50% 100%, rgba(34, 211, 238, 0.28), transparent 45%),
+    var(--bg);
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ---------- Карточка приложения ---------- */
+.app {
+  width: 100%;
+  padding: 28px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  backdrop-filter: blur(18px);     /* матовое стекло */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(139, 92, 246, 0.18);
+}
+
+.app-header {
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--lime), var(--cyan), var(--pink));
+  -webkit-background-clip: text;   /* градиент виден только внутри букв */
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+/* ---------- Кнопки ---------- */
+.button {
+  min-height: 48px;
+  padding: 0 22px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0a0a14;
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
+  border: none;
+  border-radius: 16px;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(196, 255, 61, 0.35);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.button-secondary {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--line);
+}
+
+.button-secondary:hover:not(:disabled) {
+  border-color: var(--pink);
+  box-shadow: 0 8px 22px rgba(255, 78, 205, 0.25);
+}
+
+/* =====================================================================
+   Стили лабы 7
+   ===================================================================== */
+.app {
+  max-width: 720px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+
+.search {
+  flex: 1 1 260px;
+  min-height: 48px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search::placeholder {
+  color: var(--muted);
+}
+
+.search:focus {
+  border-color: var(--lime);
+  box-shadow: 0 0 0 4px rgba(196, 255, 61, 0.18);
+}
+
+.counter {
+  margin: 0;
+  font-weight: bold;
+  color: var(--muted);
+}
+
+.search-note {
+  margin: 10px 4px 0;
+  font-size: 0.9rem;
+  color: var(--cyan);
+}
+
+/* ---------- Карточки постов ---------- */
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.post {
+  padding: 20px 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  transition: transform 0.15s, border-color 0.2s;
+}
+
+.post:hover {
+  transform: translateY(-2px);
+  border-color: var(--violet);
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.post-author {
+  padding: 2px 10px;
+  font-weight: bold;
+  color: #0a0a14;
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
+  border-radius: 999px;
+}
+
+.post-title {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.post-title::first-letter {
+  text-transform: uppercase;
+}
+
+.post-body {
+  margin: 0;
+  color: #c9c9dc;
+  line-height: 1.55;
+  white-space: pre-line;           /* в тексте поста есть переносы строк */
+}
+
+mark {
+  padding: 0 2px;
+  color: #0a0a14;
+  background: var(--lime);
+  border-radius: 4px;
+}
+
+/* ---------- Состояния ---------- */
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  color: var(--muted);
+}
+
+.loader[hidden] {
+  display: none;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-top-color: var(--lime);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  margin-top: 20px;
+  padding: 18px;
+  text-align: center;
+  background: rgba(255, 78, 205, 0.1);
+  border: 1px solid var(--pink);
+  border-radius: 16px;
+}
+
+.error p {
+  margin: 0 0 12px;
+  color: #ffd1f1;
+}
+
+.info {
+  margin: 20px 0 0;
+  padding: 18px;
+  text-align: center;
+  color: var(--muted);
+  border: 2px dashed var(--line);
+  border-radius: 16px;
+}
+
+.sentinel {
+  height: 1px;
+}
