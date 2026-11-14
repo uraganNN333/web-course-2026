@@ -1,0 +1,216 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Палитра в переменных: меняешь тут — меняется везде */
+:root {
+  --bg: #0a0a14;
+  --glass: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.14);
+  --text: #f1f1f8;
+  --muted: #9a9ab5;
+  --lime: #c4ff3d;
+  --cyan: #22d3ee;
+  --pink: #ff4ecd;
+  --violet: #8b5cf6;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.45), transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(255, 78, 205, 0.3), transparent 38%),
+    radial-gradient(circle at 50% 100%, rgba(34, 211, 238, 0.28), transparent 45%),
+    var(--bg);
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ---------- Карточка приложения ---------- */
+.app {
+  width: 100%;
+  padding: 28px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  backdrop-filter: blur(18px);     /* матовое стекло */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(139, 92, 246, 0.18);
+}
+
+.app-header {
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--lime), var(--cyan), var(--pink));
+  -webkit-background-clip: text;   /* градиент виден только внутри букв */
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+/* ---------- Кнопки ---------- */
+.button {
+  min-height: 48px;
+  padding: 0 22px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0a0a14;
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
+  border: none;
+  border-radius: 16px;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(196, 255, 61, 0.35);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.button-secondary {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--line);
+}
+
+.button-secondary:hover:not(:disabled) {
+  border-color: var(--pink);
+  box-shadow: 0 8px 22px rgba(255, 78, 205, 0.25);
+}
+
+/* =====================================================================
+   Стили лабы 6
+   ===================================================================== */
+.app {
+  max-width: 480px;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.score {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.score-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.score-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--lime);
+}
+
+/* Canvas остаётся 400×400 внутри, а на узком экране сжимается пропорционально */
+.game {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(196, 255, 61, 0.12);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+/* Кнопки-стрелки для телефона */
+.dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(2, 56px);
+  gap: 8px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.dpad-button {
+  font-size: 1.2rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.dpad-button:hover,
+.dpad-button:active {
+  background: rgba(196, 255, 61, 0.15);
+  border-color: var(--lime);
+}
+
+.dpad-up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.dpad-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.dpad-down {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.dpad-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.hint {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
